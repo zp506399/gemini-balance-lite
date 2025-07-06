@@ -1,4 +1,5 @@
-# Gemini Balance Lite - Gemini API 代理和负载均衡，无服务器轻量版
+# Gemini Balance Lite
+# Gemini API 代理和负载均衡无服务器轻量版
 
 ### 作者：技术爬爬虾
 [B站](https://space.bilibili.com/316183842)，[Youtube](https://www.youtube.com/@Tech_Shrimp)，抖音，公众号 全网同名。转载请注明作者。
