@@ -45,8 +45,9 @@ Gemini API 代理, 可以把Gemini API免费中转到国内。还可以聚合多
    </details>
 6. 点击 <b>Deploy Project</b>
 7. 部署成功后获得域名
-8. 去[AIStudio](https://aistudio.google.com)申请一个免费Gemini API Key
-9. 将API Key与分配的域名填入AI客户端即可使用，如果有多个API Key用逗号分隔
+8. 国内使用需要配置自定义域名
+9. 去[AIStudio](https://aistudio.google.com)申请一个免费Gemini API Key
+10. 将API Key与分配的域名填入AI客户端即可使用，如果有多个API Key用逗号分隔
 
 <details>
 <summary>以Cherry Studio为例：</summary>
