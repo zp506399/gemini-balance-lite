@@ -24,7 +24,10 @@ export async function handleRequest(request) {
           headers.set('x-goog-api-key', selectedKey);
         }
       } else {
-        headers.set(key, value);
+        if (key.trim().toLowerCase()==='content-type')
+        {
+           headers.set(key, value);
+        }
       }
     }
 
