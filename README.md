@@ -48,12 +48,13 @@ Gemini API 代理, 可以把Gemini API免费中转到国内。还可以聚合多
 ## Cloudflare Worker 部署
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/tech-shrimp/gemini-balance-lite)
 
+0. CF Worker有可能会分配香港的CDN节点导致无法使用
 1. 点击部署按钮
 2. 登录Cloudflare账号
 3. 填入Account ID，与API Token
 4. Fork本项目，开启Github Action功能
 5. 部署，打开dash.cloudflare.com，查看部署后的worker
-6. 使用需要配置自定义域名
+6. 国内使用需要配置自定义域名
 
 ## 打赏
 #### 帮忙点点关注点点赞，谢谢啦~
