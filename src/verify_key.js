@@ -26,7 +26,7 @@ async function verifyKey(key, controller) {
       result = { key: `${key.slice(0, 7)}......${key.slice(-7)}`, status: 'BAD', error: errorData.error.message };
     }
   } catch (e) {
-    result = { key: `${key.slice(0, 7)}......${key.slice(-7)}`, status: 'error', error: e.message };
+    result = { key: `${key.slice(0, 7)}......${key.slice(-7)}`, status: 'ERROR', error: e.message };
   }
   controller.enqueue(new TextEncoder().encode('data: ' + JSON.stringify(result) + '\n\n'));
 }
