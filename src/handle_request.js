@@ -1,3 +1,5 @@
+import { handleVerification } from './verify_key.js';
+
 export async function handleRequest(request) {
 
   const url = new URL(request.url);
@@ -9,7 +11,11 @@ export async function handleRequest(request) {
       status: 200,
       headers: { 'Content-Type': 'text/html' }
     });
-  } 
+  }
+
+  if (pathname === '/verify' && request.method === 'POST') {
+    return handleVerification(request);
+  }
   
   const targetUrl = `https://generativelanguage.googleapis.com${pathname}${search}`;
 
@@ -30,6 +36,11 @@ export async function handleRequest(request) {
         }
       }
     }
+
+    console.log('Request Sending to Gemini')
+    console.log('targetUrl:'+targetUrl)
+    console.log('headers:')
+    console.log(headers)
 
     const response = await fetch(targetUrl, {
       method: request.method,
