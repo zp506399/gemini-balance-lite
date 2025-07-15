@@ -56,6 +56,7 @@ Gemini API 代理, 可以把Gemini API免费中转到国内。还可以聚合多
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/tech-shrimp/gemini-balance-lite)
 <br>点击部署按钮，登录Github账户即可
 <br>免费分配域名，国内可直连。
+<br>但是不稳定
 
 <details>
 <summary>将分配的域名复制下来，如图：</summary>
@@ -87,3 +88,79 @@ Youtube: [https://www.youtube.com/@Tech_Shrimp](https://www.youtube.com/@Tech_Sh
 3. cd 项目根目录
 4. netlify login
 5. netlify dev
+
+## API 说明
+
+
+### Gemini 代理
+
+可以使用 Gemini 的原生 API 格式进行代理请求。
+**Curl 示例:**
+```bash
+curl --location 'https://<YOUR_DEPLOYED_DOMAIN>/v1beta/models/gemini-2.5-pro:generateContent' \
+--header 'Content-Type: application/json' \
+--header 'x-goog-api-key: <YOUR_GEMINI_API_KEY_1>,<YOUR_GEMINI_API_KEY_2>' \
+--data '{
+    "contents": [
+        {
+         "role": "user",
+         "parts": [
+            {
+               "text": "Hello"
+            }
+         ]
+      }
+    ]
+}'
+```
+**Curl 示例:（流式）**
+```bash
+curl --location 'https://<YOUR_DEPLOYED_DOMAIN>/v1beta/models/gemini-2.5-pro:generateContent?alt=sse' \
+--header 'Content-Type: application/json' \
+--header 'x-goog-api-key: <YOUR_GEMINI_API_KEY_1>,<YOUR_GEMINI_API_KEY_2>' \
+--data '{
+    "contents": [
+        {
+         "role": "user",
+         "parts": [
+            {
+               "text": "Hello"
+            }
+         ]
+      }
+    ]
+}'
+```
+> 注意: 请将 `<YOUR_DEPLOYED_DOMAIN>` 替换为你的部署域名，并将 `<YOUR_GEMINI_API_KEY>` 替换为你的 Gemini API Ke，如果有多个用逗号分隔
+
+
+### API Key 校验
+
+可以通过向 `/verify` 端点发送请求来校验你的 API Key 是否有效。可以一次性校验多个 Key，用逗号隔开。
+
+**Curl 示例:**
+```bash
+curl --location 'https://<YOUR_DEPLOYED_DOMAIN>/verify' \
+--header 'x-goog-api-key: <YOUR_GEMINI_API_KEY_1>,<YOUR_GEMINI_API_KEY_2>'
+```
+
+### OpenAI 格式
+
+本项目兼容 OpenAI 的 API 格式，你可以通过 `/chat` 或 `/chat/completions` 端点来发送请求。
+
+**Curl 示例:**
+```bash
+curl --location 'https://<YOUR_DEPLOYED_DOMAIN>/chat/completions' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <YOUR_GEMINI_API_KEY>' \
+--data '{
+    "model": "gpt-3.5-turbo",
+    "messages": [
+        {
+            "role": "user",
+            "content": "你好"
+        }
+    ]
+}'
+```
+
