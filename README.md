@@ -9,27 +9,6 @@
 
 Gemini API 代理, 可以把Gemini API免费中转到国内。还可以聚合多个Gemini API Key，随机选取API Key的使用实现负载均衡，使得Gemini API免费成倍增加。
 
-## Netlify部署(推荐)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/tech-shrimp/gemini-balance-lite)
-<br>点击部署按钮，登录Github账户即可
-<br>免费分配域名，国内可直连。
-
-<details>
-<summary>将分配的域名复制下来，如图：</summary>
-
-![image](/docs/images/1.png)
-</details>
-
-去[AIStudio](https://aistudio.google.com)申请一个免费Gemini API Key
-<br>将API Key与分配的域名填入AI客户端即可使用，如果有多个API Key用逗号分隔
-
-<details>
-<summary>以Cherry Studio为例：</summary>
-
-![image](/docs/images/2.png)
-</details>
-
-
 
 ## Deno部署
 
@@ -70,6 +49,27 @@ Gemini API 代理, 可以把Gemini API免费中转到国内。还可以聚合多
 <summary>配置自定义域名：</summary>
 
 ![image](/docs/images/4.png)
+</details>
+
+
+## Netlify部署
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/tech-shrimp/gemini-balance-lite)
+<br>点击部署按钮，登录Github账户即可
+<br>免费分配域名，国内可直连。
+
+<details>
+<summary>将分配的域名复制下来，如图：</summary>
+
+![image](/docs/images/1.png)
+</details>
+
+去[AIStudio](https://aistudio.google.com)申请一个免费Gemini API Key
+<br>将API Key与分配的域名填入AI客户端即可使用，如果有多个API Key用逗号分隔
+
+<details>
+<summary>以Cherry Studio为例：</summary>
+
+![image](/docs/images/2.png)
 </details>
 
 

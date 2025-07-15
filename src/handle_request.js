@@ -1,4 +1,5 @@
 import { handleVerification } from './verify_keys.js';
+import openai from './openai.mjs';
 
 export async function handleRequest(request) {
 
@@ -16,7 +17,12 @@ export async function handleRequest(request) {
   if (pathname === '/verify' && request.method === 'POST') {
     return handleVerification(request);
   }
-  
+
+  // 处理OpenAI格式请求
+  if (url.pathname.endsWith("/chat/completions") || url.pathname.endsWith("/completions") || url.pathname.endsWith("/embeddings") || url.pathname.endsWith("/models")) {
+    return openai.fetch(request);
+  }
+
   const targetUrl = `https://generativelanguage.googleapis.com${pathname}${search}`;
 
   try {
@@ -39,7 +45,6 @@ export async function handleRequest(request) {
 
     console.log('Request Sending to Gemini')
     console.log('targetUrl:'+targetUrl)
-    console.log('headers:')
     console.log(headers)
 
     const response = await fetch(targetUrl, {
@@ -47,6 +52,8 @@ export async function handleRequest(request) {
       headers: headers,
       body: request.body
     });
+
+    console.log("Call Gemini Success")
 
     const responseHeaders = new Headers(response.headers);
 
@@ -65,7 +72,10 @@ export async function handleRequest(request) {
     });
 
   } catch (error) {
-    console.error('Failed to fetch:', error);
-    return new Response('Internal Server Error', { status: 500 });
-  }
+   console.error('Failed to fetch:', error);
+   return new Response('Internal Server Error\n' + error?.stack, {
+    status: 500,
+    headers: { 'Content-Type': 'text/plain' }
+   });
+}
 };
