@@ -38,6 +38,10 @@ export async function handleRequest(request) {
     });
 
     const responseHeaders = new Headers(response.headers);
+
+    console.log('Header from Gemini:')
+    console.log(responseHeaders)
+
     responseHeaders.delete('transfer-encoding');
     responseHeaders.delete('connection');
     responseHeaders.delete('keep-alive');
