@@ -1,4 +1,4 @@
-import { handleVerification } from './verify_key.js';
+import { handleVerification } from './verify_keys.js';
 
 export async function handleRequest(request) {
 
