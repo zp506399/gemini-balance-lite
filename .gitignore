@@ -2,3 +2,4 @@
 .netlify
 .wrangler
 node_modules/
+.vercel

@@ -9,6 +9,27 @@
 
 Gemini API 代理, 可以把Gemini API免费中转到国内。还可以聚合多个Gemini API Key，随机选取API Key的使用实现负载均衡，使得Gemini API免费成倍增加。
 
+## Vercel部署
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tech-shrimp/gemini-balance-lite)
+
+
+1. 点击部署按钮⬆️一键部署。
+2. 国内使用需要配置自定义域名
+    <details>
+    <summary>配置自定义域名：</summary>
+
+    ![image](/docs/images/5.png)
+    </details>
+3. 去[AIStudio](https://aistudio.google.com)申请一个免费Gemini API Key
+<br>将API Key与自定义的域名填入AI客户端即可使用，如果有多个API Key用逗号分隔
+    <details>
+    <summary>以Cherry Studio为例：</summary>
+
+    ![image](/docs/images/2.png)
+    </details>
+
+
+
 
 ## Deno部署
 
