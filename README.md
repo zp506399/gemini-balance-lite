@@ -1,5 +1,5 @@
 # Gemini Balance Lite
-# Gemini API 代理和负载均衡无服务器轻量版
+# Gemini API 代理和负载均衡无服务器轻量版（边缘函数）
 
 ### 作者：技术爬爬虾
 [B站](https://space.bilibili.com/316183842)，[Youtube](https://www.youtube.com/@Tech_Shrimp)，抖音，公众号 全网同名。转载请注明作者。
@@ -7,9 +7,9 @@
 
 ## 项目简介
 
-Gemini API 代理, 可以把Gemini API免费中转到国内。还可以聚合多个Gemini API Key，随机选取API Key的使用实现负载均衡，使得Gemini API免费成倍增加。
+Gemini API 代理, 使用边缘函数把Gemini API免费中转到国内。还可以聚合多个Gemini API Key，随机选取API Key的使用实现负载均衡，使得Gemini API免费成倍增加。
 
-## Vercel部署
+## Vercel部署(推荐)
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tech-shrimp/gemini-balance-lite)
 
 
@@ -59,7 +59,7 @@ Gemini API 代理, 可以把Gemini API免费中转到国内。还可以聚合多
 ## Cloudflare Worker 部署
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/tech-shrimp/gemini-balance-lite)
 
-0. CF Worker有可能会分配香港的CDN节点导致无法使用
+0. CF Worker有可能会分配香港的CDN节点导致无法使用(Gemini不允许香港IP连接)
 0. 广东地区不建议使用Cloudflare Worker 部署
 1. 点击部署按钮
 2. 登录Cloudflare账号
@@ -102,13 +102,12 @@ B站：[https://space.bilibili.com/316183842](https://space.bilibili.com/3161838
 Youtube: [https://www.youtube.com/@Tech_Shrimp](https://www.youtube.com/@Tech_Shrimp)
 
 
-## 本地调试（Netlify）
+## 本地调试
 
 1. 安装NodeJs
-2. npm install -g netlify-cli
+2. npm install -g vercel
 3. cd 项目根目录
-4. netlify login
-5. netlify dev
+4. vercel dev
 
 ## API 说明
 
